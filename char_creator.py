@@ -20,6 +20,7 @@ def create_char(font_name, char_list, base_folder):
                     os.makedirs(char_folder)
                 c = 0
                 for font_size in font_sizes:
+                    # Create different sizes of each char
                     font = ImageFont.truetype(font_path, font_size)
                     width, height = font_size, font_size
                     image = Image.new('L', (width, height), background_color)
@@ -29,6 +30,20 @@ def create_char(font_name, char_list, base_folder):
                     y = (height - text_size[3] - text_size[1]) // 2
                     draw.text((x, y), char, font=font, fill=text_color)
                     image.save(f'{char_folder}/{c}.png')
+                    # Do noise random for each char
+                    imageNoise = add_noise(image)
+                    imageNoise.save(f'{char_folder}/{c}n.png')
+                    # Do deformation for each char (left shearing)
+                    imageShearingl = def_img_shearing(image, 0.2)
+                    imageShearingl.save(f'{char_folder}/{c}sl.png')
+                    # Do deformation for each char (right shearing)
+                    imageShearingr = def_img_shearing(image, -0.2)
+                    imageShearingr.save(f'{char_folder}/{c}sr.png')
+                    # Do rotation for each char
+                    imageRotation = def_img_rotation(image, font_size, 30)
+                    imageRotation.save(f'{char_folder}/{c}r+.png')
+                    imageRotation = def_img_rotation(image, font_size, -30)
+                    imageRotation.save(f'{char_folder}/{c}r-.png')
                     c += 1
         else:
             print('El directorio base seleccionado para crear la salida no existe.')
@@ -46,11 +61,26 @@ def add_noise(image, noise_type='salt_and_pepper', magnitude=0.05):
     return Image.fromarray(noisy_image)
 
 
+def def_img_shearing(image, shear_x):
+    image_array = np.array(image)
+    deformation_matrix = np.array([[1, shear_x, 0], [0, 1, 0]], dtype=float)
+    deformed_image = cv2.warpAffine(image_array, deformation_matrix, image_array.shape[::-1], borderMode=cv2.BORDER_CONSTANT, borderValue=255)
+    return Image.fromarray(deformed_image)
+
+
+def def_img_rotation(image, img_size, angle):
+    image_array = np.array(image)
+    deformation_matrix = cv2.getRotationMatrix2D((img_size / 2, img_size / 2), angle, 1)
+    deformed_image = cv2.warpAffine(image_array, deformation_matrix, image_array.shape[::-1], borderMode=cv2.BORDER_CONSTANT, borderValue=255)
+    return Image.fromarray(deformed_image)
+
+
+def def_img_scaling(image):
+    image_array = np.array(image)
+    scale_x = 1.5
+    scale_y = 1.5
+    deformation_matrix = np.array([[scale_x, 0, 0], [0, scale_y, 0]], dtype=float)
+    deformed_image = cv2.warpAffine(image_array, deformation_matrix, image_array.shape[::-1], borderMode=cv2.BORDER_CONSTANT, borderValue=255)
+    return Image.fromarray(deformed_image)
 
 create_char('OCRAEXT', 'ABC8', 'D:/gitProyects/cnn-ocr/characters')
-
-image_path = 'D:/gitProyects/cnn-ocr/characters/8/5.png'
-image = Image.open(image_path)
-
-noisy_image = add_noise(image)
-noisy_image.show()
