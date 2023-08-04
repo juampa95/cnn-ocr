@@ -2,9 +2,11 @@ import cv2
 import numpy as np
 import os
 from PIL import Image, ImageDraw, ImageFont
+from rectangle_detector import TextRectanglesDetector
 
 
 def create_char(font_name, char_list, base_folder):
+
     font_path = f'C:/Windows/fonts/{font_name}.ttf'
     background_color = 255
     text_color = 0
@@ -20,6 +22,7 @@ def create_char(font_name, char_list, base_folder):
                     os.makedirs(char_folder)
                 c = 0
                 for font_size in font_sizes:
+
                     # Create different sizes of each char
                     font = ImageFont.truetype(font_path, font_size)
                     width, height = font_size, font_size
@@ -30,19 +33,23 @@ def create_char(font_name, char_list, base_folder):
                     y = (height - text_size[3] - text_size[1]) // 2
                     draw.text((x, y), char, font=font, fill=text_color)
                     image.save(f'{char_folder}/{c}.png')
+
                     # Do noise random for each char
                     imageNoise = add_noise(image)
                     imageNoise.save(f'{char_folder}/{c}n.png')
+
                     # Do deformation for each char (left shearing)
                     imageShearingl = def_img_shearing(image, 0.2)
                     imageShearingl.save(f'{char_folder}/{c}sl.png')
+
                     # Do deformation for each char (right shearing)
                     imageShearingr = def_img_shearing(image, -0.2)
                     imageShearingr.save(f'{char_folder}/{c}sr.png')
-                    # Do rotation for each char
-                    imageRotation = def_img_rotation(image, font_size, 30)
+
+                    # Do two rotation for each char
+                    imageRotation = def_img_rotation(image, font_size, 15)
                     imageRotation.save(f'{char_folder}/{c}r+.png')
-                    imageRotation = def_img_rotation(image, font_size, -30)
+                    imageRotation = def_img_rotation(image, font_size, -15)
                     imageRotation.save(f'{char_folder}/{c}r-.png')
                     c += 1
         else:
@@ -83,4 +90,6 @@ def def_img_scaling(image):
     deformed_image = cv2.warpAffine(image_array, deformation_matrix, image_array.shape[::-1], borderMode=cv2.BORDER_CONSTANT, borderValue=255)
     return Image.fromarray(deformed_image)
 
-create_char('OCRAEXT', 'ABC8', 'D:/gitProyects/cnn-ocr/characters')
+
+char_list = f'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+create_char('OCRAEXT', char_list, 'D:/gitProyects/cnn-ocr/characters')
