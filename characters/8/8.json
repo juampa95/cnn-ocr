@@ -1,0 +1,506 @@
+[
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/0.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                6,
+                3,
+                13,
+                18
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/0n.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                7,
+                3,
+                12,
+                18
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/0r+.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                7,
+                3,
+                13,
+                18
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/0r-.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                6,
+                3,
+                12,
+                18
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/0sl.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                9,
+                3,
+                13,
+                18
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/0sr.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                3,
+                3,
+                13,
+                18
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/1.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                8,
+                4,
+                14,
+                21
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/1n.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                8,
+                4,
+                14,
+                21
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/1r+.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                9,
+                4,
+                14,
+                21
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/1r-.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                7,
+                4,
+                15,
+                21
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/1sl.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                11,
+                4,
+                15,
+                21
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/1sr.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                4,
+                4,
+                15,
+                21
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/2.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                11,
+                6,
+                18,
+                27
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/2n.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                11,
+                6,
+                18,
+                27
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/2r+.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                12,
+                6,
+                19,
+                28
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/2r-.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                9,
+                6,
+                19,
+                28
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/2sl.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                16,
+                6,
+                19,
+                27
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/2sr.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                6,
+                6,
+                19,
+                27
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/3.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                14,
+                8,
+                22,
+                33
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/3n.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                14,
+                8,
+                22,
+                33
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/3r+.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                15,
+                8,
+                24,
+                35
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/3r-.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                12,
+                8,
+                23,
+                34
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/3sl.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                20,
+                8,
+                23,
+                33
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/3sr.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                7,
+                8,
+                24,
+                33
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/4.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                17,
+                9,
+                26,
+                40
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/4n.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                17,
+                9,
+                26,
+                41
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/4r+.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                18,
+                9,
+                28,
+                42
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/4r-.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                14,
+                9,
+                29,
+                42
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/4sl.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                24,
+                9,
+                28,
+                40
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/4sr.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                9,
+                9,
+                28,
+                40
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/5.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                20,
+                11,
+                30,
+                46
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/5n.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                20,
+                11,
+                30,
+                47
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/5r+.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                21,
+                11,
+                33,
+                48
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/5r-.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                17,
+                11,
+                33,
+                48
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/5sl.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                28,
+                11,
+                33,
+                46
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/5sr.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                10,
+                11,
+                33,
+                46
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/6.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                23,
+                13,
+                34,
+                53
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/6n.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                23,
+                13,
+                34,
+                53
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/6r+.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                24,
+                13,
+                38,
+                55
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/6r-.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                19,
+                13,
+                37,
+                55
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/6sl.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                32,
+                13,
+                37,
+                53
+            ]
+        }
+    },
+    {
+        "image_path": "D:/gitProyects/cnn-ocr/characters/8/6sr.png",
+        "annotations": {
+            "class": "8",
+            "bbox": [
+                12,
+                13,
+                37,
+                53
+            ]
+        }
+    }
+]

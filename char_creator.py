@@ -2,8 +2,13 @@ import cv2
 import numpy as np
 import os
 from PIL import Image, ImageDraw, ImageFont
-from rectangle_detector import TextRectanglesDetector
+"""
+Creates an image of the characters given as input parameters in the selected font. 
+Additionally, it creates distorted images of this same character (size, deformations, noise, etc).
 
+The images are organized within the 'base_folder' within folders that are automatically created 
+with the name of each character.
+"""
 
 def create_char(font_name, char_list, base_folder):
 

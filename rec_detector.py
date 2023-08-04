@@ -1,5 +1,14 @@
 import cv2 as cv
 import matplotlib.pyplot as plt
+"""
+creates the coordinates of the bbox in the format (x, y, w, h) where:
+x = initial x-coordinate
+y = initial y-coordinate
+w = width of the box
+h = height of the box
+Create this file with the same name as the image but with the extension '.bbox.txt'
+"""
+
 
 class TextRectanglesDetector:
     def __init__(self):
