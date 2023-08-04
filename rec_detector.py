@@ -1,12 +1,10 @@
 import cv2 as cv
 import matplotlib.pyplot as plt
 """
-creates the coordinates of the bbox in the format (x, y, w, h) where:
-x = initial x-coordinate
-y = initial y-coordinate
-w = width of the box
-h = height of the box
-Create this file with the same name as the image but with the extension '.bbox.txt'
+Creates a rectangle in which the entire character is embedded. 
+Giving as output the coordinates of the same, or a representation by image on the screen
+
+Used in conjunction with bbox_creator.py to create bounding boxes
 """
 
 
@@ -111,10 +109,10 @@ class TextRectanglesDetector:
         bbox = self.detect_rectangles(image_path, 'bbox')
         return bbox
 
-# Uso de la clase TextRectanglesDetector para una sola imagen
-image_path = 'D:/gitProyects/cnn-ocr/characters/A/6n.png'
 
-detector = TextRectanglesDetector()
-detector.show_bbox_image(image_path)
-
-print(detector.get_bbox_coor(image_path))
+# image_path = 'characters/A/6n.png'
+#
+# detector = TextRectanglesDetector()
+# detector.show_bbox_image(image_path)
+#
+# print(detector.get_bbox_coor(image_path))

@@ -39,4 +39,4 @@ def annotations_creator(path):
                         json.dump(char_annotations, json_file, indent=4)
 
 
-annotations_creator('D:/gitProyects/cnn-ocr/characters')
+annotations_creator('characters/')

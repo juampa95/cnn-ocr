@@ -1,11 +1,14 @@
 import os
 from rectangle_detector import TextRectanglesDetector
-
-# bbox = rec_detect.get_bbox_coor(image)
-# if bbox is not None:
-#     bbox_path = f'{char_folder}/{c}.bbox.txt'
-#     with open(bbox_path, 'w') as bbox_file:
-#         bbox_file.write(','.join(str(coord) for coord in bbox))
+"""
+Use the TextRectanglesDetector object to creates the coordinates 
+of the bbox in the format (x, y, w, h) where:
+x = initial x-coordinate
+y = initial y-coordinate
+w = width of the box
+h = height of the box
+Create a file with the same name as the image but with the extension '.bbox.txt'
+"""
 
 
 def bbox_creator(path):
@@ -24,4 +27,4 @@ def bbox_creator(path):
                         bbox_file.write(','.join(str(coord) for coord in bbox))
 
 
-bbox_creator('D:/gitProyects/cnn-ocr/characters')
+bbox_creator('characters/')

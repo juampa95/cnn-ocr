@@ -97,4 +97,4 @@ def def_img_scaling(image):
 
 
 char_list = f'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-create_char('OCRAEXT', char_list, 'D:/gitProyects/cnn-ocr/characters')
+create_char('OCRAEXT', char_list, 'characters/')
