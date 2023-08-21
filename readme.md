@@ -24,33 +24,36 @@ Por ello, surge este proyecto de crear una red neuronal propia que se encargue d
 Luego de investigar un poco mas acerca de las redes neuronales convolucionales, pude armar un primer
 modelo sencillo utilizando Tensorflow y Keras. 
 
+Antes de comenzar el entrenamiento, fue necesario armar un conjunto de datos para entrenar con esta red sencilla.
+Haciendo uso de las funcionalidades ofrecidas por Keras, se uso `tf.keras.utils.image_dataset_from_directory` para
+crear los datasets de entrenamiento y validation. Se pueden ver representados por la imagen siguiente
+
+<div align="center">
+  <img src="/img/ocr_cnn_results.png" width="450" height="300"/>
+</div>
+
+
 El modelo toma como entrada imagenes en escala de grises, que se pre-procesaran en las primeras 2 capas
-La primer capa, hace una normalizacion de los valores de los pixeles, para que varien entre 0 y 1.
-La segunda capa es una capa de aumento de datos, debido a que el dataset creado es reducido, opte por utiliar este metodo
-que crea variaciones dee las imagenes originales. Para eello, hace un giro horizontal o vertical de mantera alteatoria y luego
-una rotacion de hasta un 25%
-
-A continuacion tenemos la primer capa convolucional con 36 kernels de 3x3 con una funcion de activacion RELU.
-
-Luego un MaxPooling de 2x2
-
-A continuacion tenemos la segunda capa convolucional con 72 kernels de 3x3 con una funcion de activacion RELU.
-
-Luego un MaxPooling de 2x2
-
-Luego del agrupado y las convoluciones, tenemos un Dropout del 20%
+1. La primer capa, hace una normalizacion de los valores de los pixeles, para que varien entre 0 y 1.
+2. La segunda capa es una capa de aumento de datos, debido a que el dataset creado es reducido, opte por utiliar 
+este metodo que crea variaciones dee las imagenes originales. Para ello, hace un giro horizontal o vertical de mantera 
+aleatoria y luego una rotation de hasta un 25%
+3. A continuacion tenemos la primer capa convolucional con 36 kernels de 3x3 con una funcion de activacion RELU.
+4. Luego un MaxPooling de 2x2
+4. A continuacion tenemos la segunda capa convolucional con 72 kernels de 3x3 con una funcion de activacion RELU.
+5. Luego un MaxPooling de 2x2
+6. Luego del agrupado y las convoluciones, tenemos un Dropout del 20%
 
 En este punto, termina la convolucion de las imagenes, para pasar a la clasificacion mediante una red neuronal comun. 
 
-Para ello "vectorizamos" los valores de los resultados de la ultima capa utilizando Flatten().
+7. Para ello "vectorizamos" los valores de los resultados de la ultima capa utilizando Flatten().
 
-Luego tenemos una primera capa Densa con 100 neuronas y una funcion de activuacion RELU, para pasar a la ulimta capa 
-Densa que clasifica en 36 cateogrias diferentes los valores de salida. Para ella, se usa una funcion de activacion softmax
+8. Luego tenemos una primera capa Densa con 100 neuronas y una funcion de activuacion RELU, para pasar a la ulimta capa 
+9. Densa que clasifica en 36 cateogrias diferentes los valores de salida. Para ella, se usa una funcion de activacion softmax
 
 Con estos pasos, la red tiene 2.3 millones de parametros para entrenar. 
 
-*Arquitectura de red*
-´´´
+***Arquitectura de red***
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
@@ -81,6 +84,4 @@ Total params: 2360296 (9.00 MB)
 Trainable params: 2360296 (9.00 MB)
 Non-trainable params: 0 (0.00 Byte)
 _________________________________________________________________
-
-´´´
 

@@ -122,4 +122,3 @@ plt.title('Training and Validation Loss')
 plt.show()
 
 modelo.save('ocr_cnn.keras')
-
