@@ -18,3 +18,69 @@ no logro lo necesario, debido a algunas limitaciones en el proceso de entrenamie
 
 Por ello, surge este proyecto de crear una red neuronal propia que se encargue del reconocimiento 
 óptico de caracteres, el cual pueda personalizarse sin limitación alguna. 
+
+<h2> Primeros intentos </h2>
+
+Luego de investigar un poco mas acerca de las redes neuronales convolucionales, pude armar un primer
+modelo sencillo utilizando Tensorflow y Keras. 
+
+El modelo toma como entrada imagenes en escala de grises, que se pre-procesaran en las primeras 2 capas
+La primer capa, hace una normalizacion de los valores de los pixeles, para que varien entre 0 y 1.
+La segunda capa es una capa de aumento de datos, debido a que el dataset creado es reducido, opte por utiliar este metodo
+que crea variaciones dee las imagenes originales. Para eello, hace un giro horizontal o vertical de mantera alteatoria y luego
+una rotacion de hasta un 25%
+
+A continuacion tenemos la primer capa convolucional con 36 kernels de 3x3 con una funcion de activacion RELU.
+
+Luego un MaxPooling de 2x2
+
+A continuacion tenemos la segunda capa convolucional con 72 kernels de 3x3 con una funcion de activacion RELU.
+
+Luego un MaxPooling de 2x2
+
+Luego del agrupado y las convoluciones, tenemos un Dropout del 20%
+
+En este punto, termina la convolucion de las imagenes, para pasar a la clasificacion mediante una red neuronal comun. 
+
+Para ello "vectorizamos" los valores de los resultados de la ultima capa utilizando Flatten().
+
+Luego tenemos una primera capa Densa con 100 neuronas y una funcion de activuacion RELU, para pasar a la ulimta capa 
+Densa que clasifica en 36 cateogrias diferentes los valores de salida. Para ella, se usa una funcion de activacion softmax
+
+Con estos pasos, la red tiene 2.3 millones de parametros para entrenar. 
+
+*Arquitectura de red*
+´´´
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ rescaling_8 (Rescaling)     (None, 80, 80, 1)         0         
+                                                                 
+ sequential_16 (Sequential)  (None, 80, 80, 1)         0         
+                                                                 
+ conv2d_16 (Conv2D)          (None, 78, 78, 36)        360       
+                                                                 
+ max_pooling2d_16 (MaxPooli  (None, 39, 39, 36)        0         
+ ng2D)                                                           
+                                                                 
+ conv2d_17 (Conv2D)          (None, 37, 37, 72)        23400     
+                                                                 
+ max_pooling2d_17 (MaxPooli  (None, 18, 18, 72)        0         
+ ng2D)                                                           
+                                                                 
+ dropout_8 (Dropout)         (None, 18, 18, 72)        0         
+                                                                 
+ flatten_8 (Flatten)         (None, 23328)             0         
+                                                                 
+ dense_16 (Dense)            (None, 100)               2332900   
+                                                                 
+ dense_17 (Dense)            (None, 36)                3636      
+                                                                 
+=================================================================
+Total params: 2360296 (9.00 MB)
+Trainable params: 2360296 (9.00 MB)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+
+´´´
+
