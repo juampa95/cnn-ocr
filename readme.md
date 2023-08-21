@@ -29,7 +29,7 @@ Haciendo uso de las funcionalidades ofrecidas por Keras, se uso `tf.keras.utils.
 crear los datasets de entrenamiento y validation. Se pueden ver representados por la imagen siguiente
 
 <div align="center">
-  <img src="/img/ocr_cnn_results.png" width="450" height="300"/>
+  <img src="/img/char_label.png" width="600" height="450"/>
 </div>
 
 
