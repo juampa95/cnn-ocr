@@ -1,20 +1,32 @@
 from PIL import Image, ImageDraw, ImageFont
 
-# Crear una imagen en blanco en modo RGB
-width, height = 500, 220
-image = Image.new("L", (width, height), 255)
-draw = ImageDraw.Draw(image)
+
 
 # Definir el texto y la fuente
-lines = ["NS: 12344567892", "V: 02/08/2025", "L: AXU023671", "E: 08/10/2023"]
+lines = ["NS: SYIVB983MGFRXC1", "V: 17/03/2045", "L: ZRPLKX549800OUS", "E: 02/07/2084"]
 font_path = "C:/WINDOWS/FONTS/OCRAEXT.TTF"  # Ruta a tu fuente
 font_size = 40
+name = "img6"
+
+# Alto y ancho de imagen en funcion de cantidad de caracteres y lineas de texto
+height = font_size*(len(lines))+40
+x = 0
+for line in lines:
+    if len(line) > x:
+        x = len(line)
+        print(x)
+
+width = int(font_size*6/10)*x + font_size
+
+# width, height = 600, 200
+image = Image.new("L", (width, height), 255)
+draw = ImageDraw.Draw(image)
 
 # Cargar la fuente
 font = ImageFont.truetype(font_path, font_size)
 
 # Coordenadas iniciales para el primer carácter
-x, y = 20, 20
+x, y = 10, 10
 
 # Espacio entre líneas
 line_spacing = 10
@@ -57,10 +69,10 @@ for line in lines:
     y += char_height + line_spacing
 
 # Guardar la imagen sin los bounding boxes
-image.save("output_image.png")
+image.save(name+".png")
 
 # Crear un archivo de texto con la información de las bounding boxes
-with open("bounding_boxes.txt", "w") as file:
+with open(name+".txt", "w") as file:
     for info in bounding_boxes_info:
         char, x1, y1, x2, y2 = info
         file.write(f"{char} {x1} {y1} {x2} {y2}\n")
@@ -71,11 +83,11 @@ image.show()
 
 
 # Abrir la imagen original sin los bounding boxes
-image = Image.open("output_image.png")
+image = Image.open(name+".png")
 
 # Cargar la información de las bounding boxes desde el archivo de texto
 bounding_boxes_info = []
-with open("bounding_boxes.txt", "r") as file:
+with open(name+".txt", "r") as file:
     for line in file:
         char, x1, y1, x2, y2 = line.strip().split()
         bounding_boxes_info.append((char, int(x1), int(y1), int(x2), int(y2)))

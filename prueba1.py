@@ -55,8 +55,9 @@ class CustomDataset(Dataset):
         return image, annotations
 
 # Define las transformaciones que deseas aplicar a las imágenes
-transform = transforms.Compose([transforms.Resize((224, 224)),
-                                transforms.ToTensor()])
+# transform = transforms.Compose([transforms.Resize((224, 224)),
+#                                 transforms.ToTensor()])
+transform = transforms.Compose([transforms.ToTensor()])
 
 # Directorios de datos y anotaciones
 data_dir = 'data/'
@@ -64,6 +65,7 @@ annotation_dir = 'annotations/'
 
 # Crea una instancia de tu DataLoader personalizado
 dataset = CustomDataset(data_dir, annotation_dir, transform=transform)
+# dataset = CustomDataset(data_dir, annotation_dir)
 dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
 
 classes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -104,7 +106,7 @@ def unnorm(bb, shape):
   # unnormalize bb
   # shape = (heigh, width)
   # bb = [x_min, y_min, x_max, y_max]
-  h, w = shape
+  w, h = shape
   return np.array([bb[0]*w, bb[1]*h, bb[2]*w, bb[3]*h])
 
 
@@ -140,7 +142,7 @@ def plot_anchors(img, anns, anchors, ax=None, overlap=False):
   # labels is an array containing the label
   if not ax:
     fig, ax = plt.subplots(figsize=(10, 6))
-  ax.imshow(img)
+  ax.imshow(img, cmap='gray')
   labels, bbs = anns
 
   anchors = xyxy2xywh(anchors)
@@ -161,14 +163,14 @@ def plot_anchors(img, anns, anchors, ax=None, overlap=False):
   plt.show()
 
 
-ix = 0
-img_np, anns,_ = get_sample(ix)
+ix = 2
+img_np, anns, img_size = get_sample(ix)
 labels, bbs = anns
 
-scales = [6, 3, 1]
+scales = [10,6]
 centers = [(0.5, 0.5)]
 size_scales = [0.5]
-aspect_ratios = [(1., 1.), (1.5, 0.8), (1.8, 0.4)]
+aspect_ratios = [(0.8, 1.), (0.5, 1.2), (0.3, 1.5)]
 sizes = [(s*a[0], s*a[1]) for s in size_scales for a in aspect_ratios]
 k, anchors, grid_size = generate_anchors(scales, centers, sizes)
 
